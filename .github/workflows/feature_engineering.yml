@@ -1,22 +1,35 @@
 name: Feature Engineering
 
+# ── Trigger: manual + on any change to the FE script or workflow ───────────────
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "scripts/feature_engineering.py"
+      - ".github/workflows/feature_engineering.yml"
 
 jobs:
   build-features:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+    # 1️⃣  Check out repo **with Git LFS files pulled**
+    - name: Checkout repository (incl. LFS)
+      uses: actions/checkout@v4          # v4 supports the lfs flag
+      with:
+        lfs: true        # ← pulls the large CSVs tracked by Git LFS
+        fetch-depth: 0   # (optional) get full history so LFS pointers resolve
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
+    # 2️⃣  Set up Python
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
 
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
+    # 3️⃣  Install requirements
+    - name: Install dependencies
+      run: pip install -r requirements.txt
 
-      - name: Run Feature Engineering
-        run: python scripts/feature_engineering.py
+    # 4️⃣  Run the feature‑engineering script
+    - name: Run feature engineering
+      run: python scripts/feature_engineering.py
