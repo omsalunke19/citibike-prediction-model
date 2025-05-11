@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/kolpe/OneDrive/Desktop/UB/Syllabus/500%20AML/citibike/mlruns/891116531412821625/4904050caee74b8ab89b69f9cf2ce4ef/artifacts
+end_time: 1746756042832
+entry_point_name: ''
+experiment_id: '891116531412821625'
+lifecycle_stage: active
+run_id: 4904050caee74b8ab89b69f9cf2ce4ef
+run_name: baseline_model
+run_uuid: 4904050caee74b8ab89b69f9cf2ce4ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746756042725
+status: 3
+tags: []
+user_id: kolpe
