@@ -1,0 +1,12 @@
+###############################################################################
+#  Ignore massive data folders used only inside notebooks
+###############################################################################
+
+# Raw Citi Bike ZIPs / CSVs (>100 MB each)
+data/raw/
+
+# Feature‑engineered parquet / CSV files
+data/features/
+
+# Post‑cleaning processed CSVs (>100 MB each)
+data/processed/
